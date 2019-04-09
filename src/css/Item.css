@@ -3,6 +3,7 @@
   height: 15em;
   border: 1px solid red;
   margin: 25px 25px;
+  font-size: 22px;
 }
 
 .item .todo-title {

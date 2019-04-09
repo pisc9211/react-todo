@@ -4,11 +4,11 @@ import Item from './Item';
 import '../css/App.css';
 
 const App = () => {
-  const [todos, updateTodo] = useState(['Learn React', 'use React Hooks', 'eat healthy', 'excercise']);
+  const [todos, updateTodo] = useState([{todo:'Learn React', createdAt: Date.now()}, {todo:'use React Hooks', createdAt: Date.now()}]);
   const [inputText, updateInputText] = useState('');
 
   const addTodo = (todo) => {
-    updateTodo([...todos, todo]);
+    updateTodo([...todos, {todo, createdAt: Date.now()}]);
     updateInputText('');
   }
 

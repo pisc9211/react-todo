@@ -24,8 +24,8 @@ const Item = ({ todo, deleteTodo, i }) => {
         <div>TODO</div>
         <div className="todo-close" onClick={() => deleteTodo(i)}><strong>&times;</strong></div>
       </div>
-      <div className="todo-description">{todo}</div>
-      <div className="todo-time">{moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
+      <div className="todo-description">{todo.todo}</div>
+      <div>{moment().fromNow()}</div>
     </div>
   )
 }
