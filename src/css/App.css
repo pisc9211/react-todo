@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  min-height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  padding: 10px 0;
+}
+
+.todos {
+  width: 95%;
+  flex: 1;
+  min-height: auto;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.todos-list {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.todos-adding {
+  z-index: 5;
+  border: 1px solid black;
+}
