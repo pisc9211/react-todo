@@ -31,7 +31,6 @@ h1 {
   width: 95%;
   flex: 1;
   min-height: auto;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -46,18 +45,21 @@ h1 {
 }
 
 .todos-adding {
-  border: 1px solid black;
   height: 40px;
+  margin-bottom: 20px;
 }
 
 .todos-adding input {
   width: 45%;
   height: 100%;
   font-size: 16px;
+  padding: 5px;
 }
 
 .todos-adding button {
   height: 100%;
-  width: 5%;
+  width: auto;
   font-size: 16px;
+  padding: 5px;
+  margin-left: 10px;
 }
