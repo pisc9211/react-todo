@@ -47,14 +47,33 @@
 .todo-complete {
   flex-grow: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
   margin: 3px;
+}
+
+.edit-btn {
+  border: 0;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  font-size: .7rem
+}
+
+.edit-btn:hover {
+  cursor: pointer;
 }
 
 .check-mark:hover {
   transform: scale(1.3);
   cursor: pointer;
+}
+
+.fromNow {
+  font-size: 1rem;
 }
 
 .completed {

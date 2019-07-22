@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import Item from './Item';
+import Item from './Item'
+import Modal from './Modal'
+
+import moment from 'moment'
 
 import '../css/App.css';
 
@@ -15,19 +18,29 @@ const setColor = () => {
 }
 
 const App = () => {
-  const [todos, updateTodo] = useState([{todo:'Learn React', color: setColor(), completed: false}, {todo:'use React Hooks', color: setColor(), completed: false}]);
-  const [inputText, updateInputText] = useState('');
+  let [todos, updateTodo] = useState([{todo:'Learn React', color: setColor(), completed: false, time: moment().toDate()}, {todo:'use React Hooks', color: setColor(), completed: false, time: moment().toDate()}]);
+  let [inputText, updateInputText] = useState('');
+  let [show, updateShow] = useState(false);
+  let [selected, updateSelected] = useState(null);
 
+  const toggleShow = (i) => {
+    updateSelected(i)
+    updateShow(!show);
+  }
 
   const addTodo = (todo) => {
     updateTodo([...todos, {todo, color: setColor(), completed: false}]);
     updateInputText('');
   }
 
-
   const deleteTodo = (i) => {
     let newState = [...todos.slice(0, i), ...todos.slice(i+1)]
     updateTodo(newState);
+  }
+
+  const editTodo = (i, newTodo) => {
+    let newState = [...todos.slice(0,i), newTodo, ...todos.slice(i+1)]
+    updateTodo(newState)
   }
 
   const toggleComplete = (i) => {
@@ -56,8 +69,9 @@ const App = () => {
           <input type="text" onChange={onInputChange} value={inputText}/>
           <button type="button" value="Add To-Do" onClick={onSubmitTodo}>Add ToDo</button>
         </form>
-        <div className="todos-list">{todos.map((todo, i) => <Item key={i} i={i} todo={todo} deleteTodo={deleteTodo} toggleComplete={toggleComplete} />)}</div>
+        <div className="todos-list">{todos.map((todo, i) => <Item key={i} i={i} todo={todo} deleteTodo={deleteTodo} toggleComplete={toggleComplete} toggleShow={toggleShow} />)}</div>
       </div>
+      {show ? <Modal show={show} toggleShow={toggleShow} updateTodoItem={editTodo} selected={selected} todos={todos}/> : null }
     </div> 
   )
 }
